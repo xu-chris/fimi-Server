@@ -1,0 +1,330 @@
+#
+name: "blah"
+
+input: "data"
+input_dim: 10
+input_dim: 66 
+input_dim: 14 
+input_dim: 1 
+
+############################
+## Pose Prediction branch 
+############################
+layer {
+  name: "slice_pose_2d_mean_rel"
+  type: "Slice"
+  bottom: "data"
+  top: "head_data"
+  top: "data_in"
+  slice_param {
+    slice_point: 1 
+    axis: 2
+  }
+}
+
+############################
+## Actual network starts here
+############################
+layer {
+	bottom: "data_in"
+	top: "conv1"
+	name: "conv1"
+	type: "Convolution"
+	convolution_param {
+		num_output: 160 
+		kernel_w: 1
+		kernel_h: 13
+		stride: 1
+		bias_term: false
+		weight_filler {
+			type: "xavier"
+		}
+	}
+}
+
+layer {
+	bottom: "conv1"
+	top: "conv1"
+	name: "bn_conv1"
+	type: "BatchNorm"
+	param{lr_mult: 0}
+    param{lr_mult: 0}
+    param{lr_mult: 0}
+}
+
+layer {
+	bottom: "conv1"
+	top: "conv1"
+	name: "scale_conv1"
+	type: "Scale"
+	scale_param {
+		bias_term: true
+	}
+}
+
+layer {
+	bottom: "conv1"
+	top: "conv1"
+	name: "conv1_relu"
+	type: "ReLU"
+}
+
+
+layer {
+	bottom: "conv1"
+	top: "conv2"
+	name: "conv2"
+	type: "Convolution"
+	convolution_param {
+		num_output: 256 
+		kernel_w: 1
+		kernel_h: 1
+		stride: 1
+		bias_term: false
+		weight_filler {
+			type: "xavier"
+		}
+	}
+}
+
+layer {
+	bottom: "conv2"
+	top: "conv2"
+	name: "bn_conv2"
+	type: "BatchNorm"
+	param{lr_mult: 0}
+    param{lr_mult: 0}
+    param{lr_mult: 0}
+}
+
+layer {
+	bottom: "conv2"
+	top: "conv2"
+	name: "scale_conv2"
+	type: "Scale"
+	scale_param {
+		bias_term: true
+	}
+}
+
+layer {
+	bottom: "conv2"
+	top: "conv2"
+	name: "conv2_relu"
+	type: "ReLU"
+}
+
+
+
+layer {
+	bottom: "conv2"
+	top: "conv3"
+	name: "conv3"
+	type: "Convolution"
+	convolution_param {
+		num_output: 256 
+		kernel_w: 1
+		kernel_h: 1
+		stride: 1
+		bias_term: false
+		weight_filler {
+			type: "xavier"
+		}
+	}
+}
+
+layer {
+	bottom: "conv3"
+	top: "conv3"
+	name: "bn_conv3"
+	type: "BatchNorm"
+	param{lr_mult: 0}
+    param{lr_mult: 0}
+    param{lr_mult: 0}
+}
+
+layer {
+	bottom: "conv3"
+	top: "conv3"
+	name: "scale_conv3"
+	type: "Scale"
+	scale_param {
+		bias_term: true
+	}
+}
+
+layer {
+	bottom: "conv3"
+	top: "conv3"
+	name: "conv3_relu"
+	type: "ReLU"
+}
+layer {
+	bottom: "conv3"
+	top: "conv4"
+	name: "conv4"
+	type: "Convolution"
+	convolution_param {
+		num_output: 128 
+		kernel_w: 1
+		kernel_h: 1
+		stride: 1
+		bias_term: false
+		weight_filler {
+			type: "xavier"
+		}
+	}
+}
+
+layer {
+	bottom: "conv4"
+	top: "conv4"
+	name: "bn_conv4"
+	type: "BatchNorm"
+	param{lr_mult: 0}
+    param{lr_mult: 0}
+    param{lr_mult: 0}
+}
+
+layer {
+	bottom: "conv4"
+	top: "conv4"
+	name: "scale_conv4"
+	type: "Scale"
+	scale_param {
+		bias_term: true
+	}
+}
+
+layer {
+	bottom: "conv4"
+	top: "conv4"
+	name: "conv4_relu"
+	type: "ReLU"
+}
+layer {
+	bottom: "conv4"
+	top: "pred_3d_pose_root_base"
+	name: "pred_3d_pose_root_base"
+	type: "InnerProduct"
+	inner_product_param {
+		num_output: 64  #63 values, and one scale
+		bias_term: true 
+		weight_filler {
+			type: "xavier"
+		}
+		bias_filler {
+			type: "constant"
+                        value: 0
+		}
+	}
+}
+layer {
+  name: "slice_pred_3d_pose_root_base"
+  type: "Slice"
+  bottom: "pred_3d_pose_root_base"
+  top: "pred_3d_pose_unscaled_root"
+  top: "pred_2d_to_3d_scale_root"
+  slice_param {
+    slice_point: 63 
+    axis: 1
+  }
+}
+layer {
+	bottom: "pred_2d_to_3d_scale_root"
+	top: "pred_scale_tiled_root"
+	name: "pred_scale_tiled_root"
+	type: "Tile"
+        tile_param{
+        axis: 1
+        tiles: 63
+        }
+}
+layer {
+	bottom: "pred_scale_tiled_root"
+	bottom: "pred_3d_pose_unscaled_root"
+	top: "pred_3d_pose_root"
+	name: "pred_3d_pose_root"
+	type: "Eltwise"
+        eltwise_param{
+         operation: PROD
+        }
+}
+layer {
+  name: "slice_pred_3d_root"
+  type: "Slice"
+  bottom: "pred_3d_pose_unscaled_root"
+  top: "pred_2d_pose_root"
+  top: "pred_z/s_root"
+  slice_param {
+    slice_point: 42 
+    axis: 1
+  }
+}
+layer {
+  name: "silence_feat"
+  type: "Silence"
+  bottom: "head_data"
+  bottom: "pred_z/s_root"
+}
+layer {
+  name: "concat_3d_pose_and_scale_root"
+  type: "Concat"
+  bottom: "pred_3d_pose_root"
+  bottom: "pred_2d_to_3d_scale_root"
+  top: "pred_3d_pose_scale_root"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+	bottom: "conv2"
+	top: "pred_3d_pose_scale_root_interim"
+	name: "pred_3d_pose_root_interim"
+	type: "InnerProduct"
+	inner_product_param {
+		num_output: 63  #63 values, and one scale
+		bias_term: true 
+		weight_filler {
+			type: "xavier"
+		}
+		bias_filler {
+			type: "constant"
+                        value: 0
+		}
+	}
+}
+layer {
+	bottom: "conv2"
+	top: "pred_3d_pose_parent_interim"
+	name: "pred_3d_pose_parent_interim"
+	type: "InnerProduct"
+	inner_product_param {
+		num_output: 63  #63 values, and one scale
+		bias_term: true 
+		weight_filler {
+			type: "xavier"
+		}
+		bias_filler {
+			type: "constant"
+                        value: 0
+		}
+	}
+}
+layer {
+	bottom: "conv4"
+	top: "pred_3d_pose_scale_parent"
+	name: "pred_3d_pose_parent"
+	type: "InnerProduct"
+	inner_product_param {
+		num_output: 63  #63 values, and one scale
+		bias_term: true 
+		weight_filler {
+			type: "xavier"
+		}
+		bias_filler {
+			type: "constant"
+                        value: 0
+		}
+	}
+}

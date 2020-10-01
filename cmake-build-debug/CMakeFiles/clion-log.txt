@@ -1,0 +1,72 @@
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+-- CUDA_NVCC_FLAGS:  -gencode arch=compute_70,code=sm_70 -gencode arch=compute_72,code=sm_72
+CMake Deprecation Warning at CMakeLists.txt:33 (CMAKE_POLICY):
+  The OLD behavior for policy CMP0020 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+CMake Deprecation Warning at CMakeLists.txt:36 (CMAKE_POLICY):
+  The OLD behavior for policy CMP0043 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+
+
+-- Could NOT find OpenMP_C (missing: OpenMP_C_FLAGS OpenMP_C_LIB_NAMES) 
+-- Could NOT find OpenMP_CXX (missing: OpenMP_CXX_FLAGS OpenMP_CXX_LIB_NAMES) 
+-- Could NOT find OpenMP (missing: OpenMP_C_FOUND OpenMP_CXX_FOUND) 
+-- Found Eigen
+CMake Warning at cmake/Snippets/CFindCaffe.cmake:2 (FIND_PACKAGE):
+  By not providing "FindCaffe.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "Caffe", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "Caffe" with any of
+  the following names:
+
+    CaffeConfig.cmake
+    caffe-config.cmake
+
+  Add the installation prefix of "Caffe" to CMAKE_PREFIX_PATH or set
+  "Caffe_DIR" to a directory containing one of the above files.  If "Caffe"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+Call Stack (most recent call first):
+  cmake/FindPackages.cmake:15 (INCLUDE)
+  CMakeLists.txt:41 (INCLUDE)
+
+
+CMake Error at cmake/Snippets/CFindOpenCV.cmake:2 (FIND_PACKAGE):
+  By not providing "FindOpenCV.cmake" in CMAKE_MODULE_PATH this project has
+  asked CMake to find a package configuration file provided by "OpenCV", but
+  CMake did not find one.
+
+  Could not find a package configuration file provided by "OpenCV" (requested
+  version 3) with any of the following names:
+
+    OpenCVConfig.cmake
+    opencv-config.cmake
+
+  Add the installation prefix of "OpenCV" to CMAKE_PREFIX_PATH or set
+  "OpenCV_DIR" to a directory containing one of the above files.  If "OpenCV"
+  provides a separate development package or SDK, be sure it has been
+  installed.
+Call Stack (most recent call first):
+  cmake/FindPackages.cmake:20 (INCLUDE)
+  CMakeLists.txt:41 (INCLUDE)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeError.log".

@@ -1,0 +1,3 @@
+[submodule "extern/xnect"]
+	path = extern/xnect
+	url = https://creichel@github.com/creichel/xnect.git

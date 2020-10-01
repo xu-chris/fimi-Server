@@ -1,0 +1,1784 @@
+name: "ResNet-50 Joint Location HeatMap Prediction With Implicit Proxy Predictions at 4d, 5a with l2 loss and no striding in level 5. There are more features available at later layers, and the learning rate multipliers are lower. Also with residual summations coming from 3d and 4e"
+input: "data"
+input_dim: 1
+input_dim: 3
+input_dim: 512
+input_dim: 320
+layer {
+  name: "ConvNd1"
+  type: "Convolution"
+  bottom: "data"
+  top: "BatchNorm2"
+  convolution_param {   engine: CAFFE
+    num_output: 32
+    bias_term: true
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold3"
+  type: "ReLU"
+  bottom: "BatchNorm2"
+  top: "BatchNorm2"
+}
+layer {
+  name: "ConvNd4"
+  type: "Convolution"
+  bottom: "BatchNorm2"
+  top: "BatchNorm5"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    group: 1
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold8"
+  type: "ReLU"
+  bottom: "BatchNorm5"
+  top: "BatchNorm5_"
+}
+layer {
+  name: "ConvNd9"
+  type: "Convolution"
+  bottom: "BatchNorm5_"
+  top: "BatchNorm10"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold11"
+  type: "ReLU"
+  bottom: "BatchNorm10"
+  top: "BatchNorm10"
+}
+layer {
+  name: "ConvNd12"
+  type: "Convolution"
+  bottom: "BatchNorm10"
+  top: "BatchNorm13"
+  convolution_param {   engine: CAFFE
+    num_output: 32
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold17"
+  type: "ReLU"
+  bottom: "BatchNorm13"
+  top: "BatchNorm13_"
+}
+layer {
+  name: "ConvNd18"
+  type: "Convolution"
+  bottom: "BatchNorm13_"
+  top: "BatchNorm19"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold20"
+  type: "ReLU"
+  bottom: "BatchNorm19"
+  top: "BatchNorm19"
+}
+layer {
+  name: "ConvNd21"
+  type: "Convolution"
+  bottom: "BatchNorm19"
+  top: "BatchNorm22"
+  convolution_param {   engine: CAFFE
+    num_output: 32
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold26"
+  type: "ReLU"
+  bottom: "BatchNorm22"
+  top: "BatchNorm25_"
+}
+layer {
+  name: "Concat24"
+  type: "Concat"
+  bottom: "BatchNorm5_"
+  bottom: "BatchNorm13_"
+  bottom: "BatchNorm25_"
+  top: "Concat24"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd27"
+  type: "Convolution"
+  bottom: "Concat24"
+  top: "BatchNorm28"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold28_"
+  type: "ReLU"
+  bottom: "BatchNorm28"
+  top: "BatchNorm28"
+}
+layer {
+  name: "ConvNd4_2"
+  type: "Convolution"
+  bottom: "BatchNorm28"
+  top: "BatchNorm5_2"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold8_2"
+  type: "ReLU"
+  bottom: "BatchNorm5_2"
+  top: "BatchNorm5_2"
+}
+layer {
+  name: "ConvNd9_2"
+  type: "Convolution"
+  bottom: "BatchNorm5_2"
+  top: "BatchNorm10_2"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold11_2"
+  type: "ReLU"
+  bottom: "BatchNorm10_2"
+  top: "BatchNorm10_2"
+}
+layer {
+  name: "ConvNd12_2"
+  type: "Convolution"
+  bottom: "BatchNorm10_2"
+  top: "BatchNorm13_2"
+  convolution_param {   engine: CAFFE
+    num_output: 32
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold17_2"
+  type: "ReLU"
+  bottom: "BatchNorm13_2"
+  top: "BatchNorm13_2"
+}
+layer {
+  name: "ConvNd18_2"
+  type: "Convolution"
+  bottom: "BatchNorm13_2"
+  top: "BatchNorm19_2"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold20_2"
+  type: "ReLU"
+  bottom: "BatchNorm19_2"
+  top: "BatchNorm19_2"
+}
+layer {
+  name: "ConvNd21_2"
+  type: "Convolution"
+  bottom: "BatchNorm19_2"
+  top: "BatchNorm22_2"
+  convolution_param {   engine: CAFFE
+    num_output: 32
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold26_2"
+  type: "ReLU"
+  bottom: "BatchNorm22_2"
+  top: "BatchNorm25_2"
+}
+layer {
+  name: "Concat24_2"
+  type: "Concat"
+  bottom: "BatchNorm5_2"
+  bottom: "BatchNorm13_2"
+  bottom: "BatchNorm25_2"
+  bottom: "BatchNorm28"
+  top: "Concat24_2"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd27_2"
+  type: "Convolution"
+  bottom: "Concat24_2"
+  top: "BatchNorm28_2"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold28_2"
+  type: "ReLU"
+  bottom: "BatchNorm28_2"
+  top: "BatchNorm28_2"
+}
+layer {
+  name: "ConvNd29"
+  type: "Convolution"
+  bottom: "BatchNorm28_2"
+  top: "BatchNorm30"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    group: 2
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold33"
+  type: "ReLU"
+  bottom: "BatchNorm30"
+  top: "BatchNorm30_"
+}
+layer {
+  name: "ConvNd34"
+  type: "Convolution"
+  bottom: "BatchNorm30_"
+  top: "BatchNorm35"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold36"
+  type: "ReLU"
+  bottom: "BatchNorm35"
+  top: "BatchNorm35"
+}
+layer {
+  name: "ConvNd37"
+  type: "Convolution"
+  bottom: "BatchNorm35"
+  top: "BatchNorm38"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold42"
+  type: "ReLU"
+  bottom: "BatchNorm38"
+  top: "BatchNorm38_"
+}
+layer {
+  name: "ConvNd43"
+  type: "Convolution"
+  bottom: "BatchNorm38_"
+  top: "BatchNorm44"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold45"
+  type: "ReLU"
+  bottom: "BatchNorm44"
+  top: "BatchNorm44"
+}
+layer {
+  name: "ConvNd46"
+  type: "Convolution"
+  bottom: "BatchNorm44"
+  top: "BatchNorm47"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold51"
+  type: "ReLU"
+  bottom: "BatchNorm47"
+  top: "BatchNorm50_"
+}
+layer {
+  name: "Concat49"
+  type: "Concat"
+  bottom: "BatchNorm30_"
+  bottom: "BatchNorm38_"
+  bottom: "BatchNorm50_"
+  top: "Concat49"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd52"
+  type: "Convolution"
+  bottom: "Concat49"
+  top: "BatchNorm53"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold53"
+  type: "ReLU"
+  bottom: "BatchNorm53"
+  top: "BatchNorm53"
+}
+layer {
+  name: "ConvNd55"
+  type: "Convolution"
+  bottom: "BatchNorm53"
+  top: "BatchNorm56"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold59"
+  type: "ReLU"
+  bottom: "BatchNorm56"
+  top: "BatchNorm56_"
+}
+layer {
+  name: "ConvNd60"
+  type: "Convolution"
+  bottom: "BatchNorm56_"
+  top: "BatchNorm61"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold62"
+  type: "ReLU"
+  bottom: "BatchNorm61"
+  top: "BatchNorm61"
+}
+layer {
+  name: "ConvNd63"
+  type: "Convolution"
+  bottom: "BatchNorm61"
+  top: "BatchNorm64"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold68"
+  type: "ReLU"
+  bottom: "BatchNorm64"
+  top: "BatchNorm64_"
+}
+layer {
+  name: "ConvNd69"
+  type: "Convolution"
+  bottom: "BatchNorm64_"
+  top: "BatchNorm70"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold71"
+  type: "ReLU"
+  bottom: "BatchNorm70"
+  top: "BatchNorm70"
+}
+layer {
+  name: "ConvNd72"
+  type: "Convolution"
+  bottom: "BatchNorm70"
+  top: "BatchNorm73"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    pad: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold77"
+  type: "ReLU"
+  bottom: "BatchNorm73"
+  top: "BatchNorm76_"
+}
+layer {
+  name: "Concat75"
+  type: "Concat"
+  bottom: "BatchNorm56_"
+  bottom: "BatchNorm64_"
+  bottom: "BatchNorm76_"
+  bottom: "BatchNorm53"
+  top: "Concat75"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd78"
+  type: "Convolution"
+  bottom: "Concat75"
+  top: "BatchNorm79"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold79"
+  type: "ReLU"
+  bottom: "BatchNorm79"
+  top: "BatchNorm79"
+}
+layer {
+  name: "ConvNd82"
+  type: "Convolution"
+  bottom: "BatchNorm79"
+  top: "BatchNorm83"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    group: 4
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold86"
+  type: "ReLU"
+  bottom: "BatchNorm83"
+  top: "BatchNorm83_"
+}
+layer {
+  name: "ConvNd87"
+  type: "Convolution"
+  bottom: "BatchNorm83_"
+  top: "BatchNorm88"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold89"
+  type: "ReLU"
+  bottom: "BatchNorm88"
+  top: "BatchNorm88"
+}
+layer {
+  name: "ConvNd90"
+  type: "Convolution"
+  bottom: "BatchNorm88"
+  top: "BatchNorm91"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold95"
+  type: "ReLU"
+  bottom: "BatchNorm91"
+  top: "BatchNorm91_"
+}
+layer {
+  name: "ConvNd96"
+  type: "Convolution"
+  bottom: "BatchNorm91_"
+  top: "BatchNorm97"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold98"
+  type: "ReLU"
+  bottom: "BatchNorm97"
+  top: "BatchNorm97"
+}
+layer {
+  name: "ConvNd99"
+  type: "Convolution"
+  bottom: "BatchNorm97"
+  top: "BatchNorm100"
+  convolution_param {   engine: CAFFE
+    num_output: 64
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold104"
+  type: "ReLU"
+  bottom: "BatchNorm100"
+  top: "BatchNorm103_"
+}
+layer {
+  name: "Concat102"
+  type: "Concat"
+  bottom: "BatchNorm83_"
+  bottom: "BatchNorm91_"
+  bottom: "BatchNorm103_"
+  bottom: "BatchNorm53"
+  top: "Concat102"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd105"
+  type: "Convolution"
+  bottom: "Concat102"
+  top: "BatchNorm106"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold106"
+  type: "ReLU"
+  bottom: "BatchNorm106"
+  top: "BatchNorm106"
+}
+layer {
+  name: "ConvNd108"
+  type: "Convolution"
+  bottom: "BatchNorm106"
+  top: "BatchNorm109"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    group: 4
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold112"
+  type: "ReLU"
+  bottom: "BatchNorm109"
+  top: "BatchNorm109_"
+}
+layer {
+  name: "ConvNd113"
+  type: "Convolution"
+  bottom: "BatchNorm109_"
+  top: "BatchNorm114"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold115"
+  type: "ReLU"
+  bottom: "BatchNorm114"
+  top: "BatchNorm114"
+}
+layer {
+  name: "ConvNd116"
+  type: "Convolution"
+  bottom: "BatchNorm114"
+  top: "BatchNorm117"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold121"
+  type: "ReLU"
+  bottom: "BatchNorm117"
+  top: "BatchNorm117_"
+}
+layer {
+  name: "ConvNd122"
+  type: "Convolution"
+  bottom: "BatchNorm117_"
+  top: "BatchNorm123"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold124"
+  type: "ReLU"
+  bottom: "BatchNorm123"
+  top: "BatchNorm123"
+}
+layer {
+  name: "ConvNd125"
+  type: "Convolution"
+  bottom: "BatchNorm123"
+  top: "BatchNorm126"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold130"
+  type: "ReLU"
+  bottom: "BatchNorm126"
+  top: "BatchNorm129_"
+}
+layer {
+  name: "Concat128"
+  type: "Concat"
+  bottom: "BatchNorm109_"
+  bottom: "BatchNorm117_"
+  bottom: "BatchNorm129_"
+  top: "Concat128"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd131"
+  type: "Convolution"
+  bottom: "Concat128"
+  top: "BatchNorm132"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold132"
+  type: "ReLU"
+  bottom: "BatchNorm132"
+  top: "BatchNorm132"
+}
+layer {
+  name: "ConvNd134"
+  type: "Convolution"
+  bottom: "BatchNorm132"
+  top: "BatchNorm135"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    group: 4
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold138"
+  type: "ReLU"
+  bottom: "BatchNorm135"
+  top: "BatchNorm135_"
+}
+layer {
+  name: "ConvNd139"
+  type: "Convolution"
+  bottom: "BatchNorm135_"
+  top: "BatchNorm140"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold141"
+  type: "ReLU"
+  bottom: "BatchNorm140"
+  top: "BatchNorm140"
+}
+layer {
+  name: "ConvNd142"
+  type: "Convolution"
+  bottom: "BatchNorm140"
+  top: "BatchNorm143"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold147"
+  type: "ReLU"
+  bottom: "BatchNorm143"
+  top: "BatchNorm143_"
+}
+layer {
+  name: "ConvNd148"
+  type: "Convolution"
+  bottom: "BatchNorm143_"
+  top: "BatchNorm149"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold150"
+  type: "ReLU"
+  bottom: "BatchNorm149"
+  top: "BatchNorm149"
+}
+layer {
+  name: "ConvNd151"
+  type: "Convolution"
+  bottom: "BatchNorm149"
+  top: "BatchNorm152"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold156"
+  type: "ReLU"
+  bottom: "BatchNorm152"
+  top: "BatchNorm155_"
+}
+layer {
+  name: "Concat154"
+  type: "Concat"
+  bottom: "BatchNorm135_"
+  bottom: "BatchNorm143_"
+  bottom: "BatchNorm155_"
+  bottom: "BatchNorm132"
+  top: "Concat154"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd157"
+  type: "Convolution"
+  bottom: "Concat154"
+  top: "BatchNorm158"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold158"
+  type: "ReLU"
+  bottom: "BatchNorm158"
+  top: "BatchNorm158"
+}
+layer {
+  name: "ConvNd161"
+  type: "Convolution"
+  bottom: "BatchNorm158"
+  top: "BatchNorm162"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    group: 4
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold165"
+  type: "ReLU"
+  bottom: "BatchNorm162"
+  top: "BatchNorm162_"
+}
+layer {
+  name: "ConvNd166"
+  type: "Convolution"
+  bottom: "BatchNorm162_"
+  top: "BatchNorm167"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold168"
+  type: "ReLU"
+  bottom: "BatchNorm167"
+  top: "BatchNorm167"
+}
+layer {
+  name: "ConvNd169"
+  type: "Convolution"
+  bottom: "BatchNorm167"
+  top: "BatchNorm170"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold174"
+  type: "ReLU"
+  bottom: "BatchNorm170"
+  top: "BatchNorm170_"
+}
+layer {
+  name: "ConvNd175"
+  type: "Convolution"
+  bottom: "BatchNorm170_"
+  top: "BatchNorm176"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold177"
+  type: "ReLU"
+  bottom: "BatchNorm176"
+  top: "BatchNorm176"
+}
+layer {
+  name: "ConvNd178"
+  type: "Convolution"
+  bottom: "BatchNorm176"
+  top: "BatchNorm179"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold183"
+  type: "ReLU"
+  bottom: "BatchNorm179"
+  top: "BatchNorm182_"
+}
+layer {
+  name: "Concat181"
+  type: "Concat"
+  bottom: "BatchNorm162_"
+  bottom: "BatchNorm170_"
+  bottom: "BatchNorm182_"
+  bottom: "BatchNorm132"
+  top: "Concat181"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd184"
+  type: "Convolution"
+  bottom: "Concat181"
+  top: "BatchNorm185"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold185"
+  type: "ReLU"
+  bottom: "BatchNorm185"
+  top: "BatchNorm185"
+}
+layer {
+  name: "ConvNd187"
+  type: "Convolution"
+  bottom: "BatchNorm185"
+  top: "BatchNorm188"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    group: 4
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 1
+    pad_w: 1
+    kernel_h: 3
+    kernel_w: 3
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold191"
+  type: "ReLU"
+  bottom: "BatchNorm188"
+  top: "BatchNorm188_"
+}
+layer {
+  name: "ConvNd192"
+  type: "Convolution"
+  bottom: "BatchNorm188_"
+  top: "BatchNorm193"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold194"
+  type: "ReLU"
+  bottom: "BatchNorm193"
+  top: "BatchNorm193"
+}
+layer {
+  name: "ConvNd195"
+  type: "Convolution"
+  bottom: "BatchNorm193"
+  top: "BatchNorm196"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold200"
+  type: "ReLU"
+  bottom: "BatchNorm196"
+  top: "BatchNorm196_"
+}
+layer {
+  name: "ConvNd201"
+  type: "Convolution"
+  bottom: "BatchNorm196_"
+  top: "BatchNorm202"
+  convolution_param {   engine: CAFFE
+    num_output: 288
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold203"
+  type: "ReLU"
+  bottom: "BatchNorm202"
+  top: "BatchNorm202"
+}
+layer {
+  name: "ConvNd204"
+  type: "Convolution"
+  bottom: "BatchNorm202"
+  top: "BatchNorm205"
+  convolution_param {   engine: CAFFE
+    num_output: 144
+    bias_term: true
+    pad: 1
+    group: 2
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    kernel_h: 3
+    kernel_w: 3
+  }
+}
+layer {
+  name: "Threshold209"
+  type: "ReLU"
+  bottom: "BatchNorm205"
+  top: "BatchNorm208_"
+}
+layer {
+  name: "Concat207"
+  type: "Concat"
+  bottom: "BatchNorm188_"
+  bottom: "BatchNorm196_"
+  bottom: "BatchNorm208_"
+  bottom: "BatchNorm132"
+  top: "Concat207"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "ConvNd210"
+  type: "Convolution"
+  bottom: "Concat207"
+  top: "BatchNorm270"
+  convolution_param {   engine: CAFFE
+    num_output: 416
+    bias_term: true
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    pad_h: 0
+    pad_w: 0
+    kernel_h: 1
+    kernel_w: 1
+    dilation: 1
+  }
+}
+layer {
+  name: "Threshold270"
+  type: "ReLU"
+  bottom: "BatchNorm270"
+  top: "BatchNorm270"
+}
+layer {
+  name: "res5b_branch2b_new"
+  type: "Convolution"
+  bottom: "BatchNorm270"
+  top: "res5b_branch2b"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {   engine: CAFFE
+    num_output: 256
+    bias_term: true
+    pad: 0
+    kernel_size: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res5b_branch2b_relu"
+  type: "ReLU"
+  bottom: "res5b_branch2b"
+  top: "res5b_branch2b"
+}
+layer {
+  name: "res5b_branch2c_new"
+  type: "Deconvolution"
+  bottom: "res5b_branch2b"
+  top: "res5b_branch2c"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {   engine: CAFFE
+    num_output: 192
+    bias_term: true
+    pad: 1
+    kernel_size: 4
+    group: 4
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res5b_relu"
+  type: "ReLU"
+  bottom: "res5b_branch2c"
+  top: "res5b_branch2c"
+}
+layer {
+  name: "res5c_branch2a_new"
+  type: "Convolution"
+  bottom: "res5b_branch2c"
+  top: "res5c_branch2a"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res5c_branch2a_relu"
+  type: "ReLU"
+  bottom: "res5c_branch2a"
+  top: "res5c_branch2a"
+}
+layer {
+  name: "res5c_branch2b_new"
+  type: "Convolution"
+  bottom: "res5c_branch2a"
+  top: "res5c_branch2b"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {   engine: CAFFE
+    num_output: 96
+    bias_term: true
+    pad: 1
+    kernel_size: 3
+    group: 4
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res5c_branch2b_relu"
+  type: "ReLU"
+  bottom: "res5c_branch2b"
+  top: "res5c_branch2b"
+}
+layer {
+  name: "res5c_branch2c_new"
+  type: "Convolution"
+  bottom: "res5c_branch2b"
+  top: "res5c_branch2c"
+  param {
+    lr_mult: 1
+  }
+  convolution_param {   engine: CAFFE
+    num_output: 57
+    bias_term: true
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "res5b_branch2b_3da"
+  type: "Convolution"
+  bottom: "BatchNorm270"
+  top: "res5b_branch2b_3da"
+  convolution_param {   engine: CAFFE
+    num_output: 256
+    bias_term: true
+    pad: 0
+    kernel_size: 1
+    group: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res5b_branch2b_prelu_3da"
+  type: "ReLU"
+  bottom: "res5b_branch2b_3da"
+  top: "res5b_branch2b_3da"
+}
+layer {
+  name: "ConvNd187_3d"
+  type: "Deconvolution"
+  bottom: "res5b_branch2b_3da"
+  top: "BatchNorm188_3d"
+  convolution_param {   engine: CAFFE
+    num_output: 192
+    bias_term: true
+    pad: 1
+    kernel_size: 4
+    group: 4
+    stride: 2
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "Threshold189_3d"
+  type: "ReLU"
+  bottom: "BatchNorm188_3d"
+  top: "BatchNorm188_3d"
+}
+layer {
+  name: "ConvNd210_3d"
+  type: "Convolution"
+  bottom: "BatchNorm188_3d"
+  top: "BatchNorm211_3d"
+  convolution_param {   engine: CAFFE
+    num_output: 160
+    bias_term: true
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "Threshold268_3d"
+  type: "ReLU"
+  bottom: "BatchNorm211_3d"
+  top: "BatchNorm211_3d"
+}
+layer {
+  name: "Concat 2dnet and 3d"
+  type: "Concat"
+  bottom: "BatchNorm211_3d"
+  bottom: "res5c_branch2a"
+  top: "res5c_concat"
+  concat_param {
+    axis: 1
+  }
+}
+layer {
+  name: "res5b_branch2c_3d"
+  type: "Convolution"
+  bottom: "res5c_concat"
+  top: "res5b_branch2c_3d"
+  convolution_param {   engine: CAFFE
+    num_output: 160
+    bias_term: true
+    pad: 0
+    kernel_size: 1
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res5b_branch2c_relu_3d"
+  type: "ReLU"
+  bottom: "res5b_branch2c_3d"
+  top: "res5b_branch2c_3d"
+}
+layer {
+  name: "res7a_branch1_3d"
+  type: "Convolution"
+  bottom: "res5b_branch2c_3d"
+  top: "res7a_branch1_3d"
+  convolution_param {   engine: CAFFE
+    num_output: 128
+    bias_term: true
+    pad: 1
+    kernel_size: 3
+    group: 4
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+  }
+}
+layer {
+  name: "res7a_branch1_relu_3d"
+  type: "ReLU"
+  bottom: "res7a_branch1_3d"
+  top: "res7a_branch1_3d"
+}
+layer {
+  name: "res7a_branch2a_3d"
+  type: "Convolution"
+  bottom: "res7a_branch1_3d"
+  top: "7b_prediction"
+  convolution_param {   engine: CAFFE
+    num_output: 63
+    bias_term: true
+    pad: 1
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+      value: 0
+    }
+  }
+}
+layer {
+  name: "slice_res5c"
+  type: "Slice"
+  bottom: "res5c_branch2c"
+  #bottom: "resized_map"
+  top: "heatmap_2d"
+  top: "affinity_2d"
+  slice_param {
+    slice_point: 19
+    axis: 1
+  }
+}
+layer {
+  name: "resize"
+  type: "ImResize"
+  bottom: "res5c_branch2c"
+  top: "resized_map"
+  imresize_param {
+    factor: 4
+    scale_gap: 1.0
+    start_scale: 1.0
+    #target_spatial_width: 368
+    #target_spatial_height: 368
+  }
+}
+
+layer {
+  name: "nms"
+  type: "Nms"
+  bottom: "resized_map"
+  top: "joints"
+  propagate_down: false
+  nms_param {
+    threshold: 0.2 # DM changed this from 0.2
+    max_peaks: 64 # DM changed this from 64
+    num_parts: 18
+  }
+}

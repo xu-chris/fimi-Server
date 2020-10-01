@@ -1,0 +1,948 @@
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c7702/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_c7702.dir/build.make CMakeFiles/cmTC_c7702.dir/build
+Building C object CMakeFiles/cmTC_c7702.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_c7702.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_c7702.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_c7702/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_61cf7/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_61cf7.dir/build.make CMakeFiles/cmTC_61cf7.dir/build
+Building C object CMakeFiles/cmTC_61cf7.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_61cf7.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_61cf7.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_61cf7/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_f9281/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_f9281.dir/build.make CMakeFiles/cmTC_f9281.dir/build
+Building C object CMakeFiles/cmTC_f9281.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_f9281.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_f9281.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_f9281/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b035d/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_b035d.dir/build.make CMakeFiles/cmTC_b035d.dir/build
+Building C object CMakeFiles/cmTC_b035d.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_b035d.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_b035d.dir/OpenMPTryFlag.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_b035d.dir/OpenMPTryFlag.c.o -x c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_b035d.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_b035d/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_13f1b/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_13f1b.dir/build.make CMakeFiles/cmTC_13f1b.dir/build
+Building CXX object CMakeFiles/cmTC_13f1b.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_13f1b.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_13f1b.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_13f1b/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ef236/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_ef236.dir/build.make CMakeFiles/cmTC_ef236.dir/build
+Building CXX object CMakeFiles/cmTC_ef236.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_ef236.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_ef236.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_ef236/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0bdb1/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_0bdb1.dir/build.make CMakeFiles/cmTC_0bdb1.dir/build
+Building CXX object CMakeFiles/cmTC_0bdb1.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_0bdb1.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_0bdb1.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_0bdb1/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d7069/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d7069.dir/build.make CMakeFiles/cmTC_d7069.dir/build
+Building CXX object CMakeFiles/cmTC_d7069.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_d7069.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_d7069.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_d7069.dir/OpenMPTryFlag.cpp.o -x c++ /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_d7069.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_d7069/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6d9de/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_6d9de.dir/build.make CMakeFiles/cmTC_6d9de.dir/build
+Building C object CMakeFiles/cmTC_6d9de.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_6d9de.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_6d9de.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_6d9de/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_83bd6/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_83bd6.dir/build.make CMakeFiles/cmTC_83bd6.dir/build
+Building C object CMakeFiles/cmTC_83bd6.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_83bd6.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_83bd6.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_83bd6/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_536fe/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_536fe.dir/build.make CMakeFiles/cmTC_536fe.dir/build
+Building C object CMakeFiles/cmTC_536fe.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_536fe.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_536fe.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_536fe/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0256d/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_0256d.dir/build.make CMakeFiles/cmTC_0256d.dir/build
+Building C object CMakeFiles/cmTC_0256d.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_0256d.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_0256d.dir/OpenMPTryFlag.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_0256d.dir/OpenMPTryFlag.c.o -x c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_0256d.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_0256d/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_afa6c/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_afa6c.dir/build.make CMakeFiles/cmTC_afa6c.dir/build
+Building CXX object CMakeFiles/cmTC_afa6c.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_afa6c.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_afa6c.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_afa6c/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_38dc4/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_38dc4.dir/build.make CMakeFiles/cmTC_38dc4.dir/build
+Building CXX object CMakeFiles/cmTC_38dc4.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_38dc4.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_38dc4.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_38dc4/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_07219/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_07219.dir/build.make CMakeFiles/cmTC_07219.dir/build
+Building CXX object CMakeFiles/cmTC_07219.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_07219.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_07219.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_07219/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_050ba/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_050ba.dir/build.make CMakeFiles/cmTC_050ba.dir/build
+Building CXX object CMakeFiles/cmTC_050ba.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_050ba.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_050ba.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -O3 -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -vectorize-loops -vectorize-slp -fopenmp -o CMakeFiles/cmTC_050ba.dir/OpenMPTryFlag.cpp.o -x c++ /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_050ba.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_050ba/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_26391/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_26391.dir/build.make CMakeFiles/cmTC_26391.dir/build
+Building C object CMakeFiles/cmTC_26391.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_26391.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_26391.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_26391/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d6549/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d6549.dir/build.make CMakeFiles/cmTC_d6549.dir/build
+Building C object CMakeFiles/cmTC_d6549.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_d6549.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_d6549.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_d6549/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0d006/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_0d006.dir/build.make CMakeFiles/cmTC_0d006.dir/build
+Building C object CMakeFiles/cmTC_0d006.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_0d006.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_0d006.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_0d006/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d158c/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d158c.dir/build.make CMakeFiles/cmTC_d158c.dir/build
+Building C object CMakeFiles/cmTC_d158c.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_d158c.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_d158c.dir/OpenMPTryFlag.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_d158c.dir/OpenMPTryFlag.c.o -x c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_d158c.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_d158c/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_95e49/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_95e49.dir/build.make CMakeFiles/cmTC_95e49.dir/build
+Building CXX object CMakeFiles/cmTC_95e49.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_95e49.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_95e49.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_95e49/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0c619/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_0c619.dir/build.make CMakeFiles/cmTC_0c619.dir/build
+Building CXX object CMakeFiles/cmTC_0c619.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_0c619.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_0c619.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_0c619/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_e328e/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_e328e.dir/build.make CMakeFiles/cmTC_e328e.dir/build
+Building CXX object CMakeFiles/cmTC_e328e.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_e328e.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_e328e.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_e328e/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_3d4d0/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_3d4d0.dir/build.make CMakeFiles/cmTC_3d4d0.dir/build
+Building CXX object CMakeFiles/cmTC_3d4d0.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_3d4d0.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_3d4d0.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_3d4d0.dir/OpenMPTryFlag.cpp.o -x c++ /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_3d4d0.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_3d4d0/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_aed9c/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_aed9c.dir/build.make CMakeFiles/cmTC_aed9c.dir/build
+Building C object CMakeFiles/cmTC_aed9c.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_aed9c.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_aed9c.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_aed9c/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_70aee/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_70aee.dir/build.make CMakeFiles/cmTC_70aee.dir/build
+Building C object CMakeFiles/cmTC_70aee.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_70aee.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_70aee.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_70aee/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7f6e6/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_7f6e6.dir/build.make CMakeFiles/cmTC_7f6e6.dir/build
+Building C object CMakeFiles/cmTC_7f6e6.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_7f6e6.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_7f6e6.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_7f6e6/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_2242d/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_2242d.dir/build.make CMakeFiles/cmTC_2242d.dir/build
+Building C object CMakeFiles/cmTC_2242d.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_2242d.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_2242d.dir/OpenMPTryFlag.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_2242d.dir/OpenMPTryFlag.c.o -x c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_2242d.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_2242d/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bd719/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_bd719.dir/build.make CMakeFiles/cmTC_bd719.dir/build
+Building CXX object CMakeFiles/cmTC_bd719.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_bd719.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_bd719.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_bd719/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cb3fc/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_cb3fc.dir/build.make CMakeFiles/cmTC_cb3fc.dir/build
+Building CXX object CMakeFiles/cmTC_cb3fc.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_cb3fc.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_cb3fc.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_cb3fc/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4bb7d/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_4bb7d.dir/build.make CMakeFiles/cmTC_4bb7d.dir/build
+Building CXX object CMakeFiles/cmTC_4bb7d.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_4bb7d.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_4bb7d.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_4bb7d/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_82241/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_82241.dir/build.make CMakeFiles/cmTC_82241.dir/build
+Building CXX object CMakeFiles/cmTC_82241.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_82241.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_82241.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -O3 -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -vectorize-loops -vectorize-slp -fopenmp -o CMakeFiles/cmTC_82241.dir/OpenMPTryFlag.cpp.o -x c++ /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_82241.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_82241/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_c4588/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_c4588.dir/build.make CMakeFiles/cmTC_c4588.dir/build
+Building C object CMakeFiles/cmTC_c4588.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_c4588.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_c4588.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_c4588/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d4f74/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_d4f74.dir/build.make CMakeFiles/cmTC_d4f74.dir/build
+Building C object CMakeFiles/cmTC_d4f74.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_d4f74.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_d4f74.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_d4f74/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_7ee2e/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_7ee2e.dir/build.make CMakeFiles/cmTC_7ee2e.dir/build
+Building C object CMakeFiles/cmTC_7ee2e.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_7ee2e.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_7ee2e.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_7ee2e/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_8dbb9/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_8dbb9.dir/build.make CMakeFiles/cmTC_8dbb9.dir/build
+Building C object CMakeFiles/cmTC_8dbb9.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_8dbb9.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_8dbb9.dir/OpenMPTryFlag.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_8dbb9.dir/OpenMPTryFlag.c.o -x c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_8dbb9.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_8dbb9/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_6fc3d/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_6fc3d.dir/build.make CMakeFiles/cmTC_6fc3d.dir/build
+Building CXX object CMakeFiles/cmTC_6fc3d.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_6fc3d.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_6fc3d.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_6fc3d/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_37670/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_37670.dir/build.make CMakeFiles/cmTC_37670.dir/build
+Building CXX object CMakeFiles/cmTC_37670.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_37670.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_37670.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_37670/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_81266/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_81266.dir/build.make CMakeFiles/cmTC_81266.dir/build
+Building CXX object CMakeFiles/cmTC_81266.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_81266.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_81266.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_81266/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_4cbd9/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_4cbd9.dir/build.make CMakeFiles/cmTC_4cbd9.dir/build
+Building CXX object CMakeFiles/cmTC_4cbd9.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -std=c++11 -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_4cbd9.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_4cbd9.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_4cbd9.dir/OpenMPTryFlag.cpp.o -x c++ /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_4cbd9.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_4cbd9/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_95f87/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_95f87.dir/build.make CMakeFiles/cmTC_95f87.dir/build
+Building C object CMakeFiles/cmTC_95f87.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_95f87.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_95f87.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_95f87/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_5dc58/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_5dc58.dir/build.make CMakeFiles/cmTC_5dc58.dir/build
+Building C object CMakeFiles/cmTC_5dc58.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_5dc58.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_5dc58.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_5dc58/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_dd3d9/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_dd3d9.dir/build.make CMakeFiles/cmTC_dd3d9.dir/build
+Building C object CMakeFiles/cmTC_dd3d9.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_dd3d9.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_dd3d9.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_dd3d9/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_79aea/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_79aea.dir/build.make CMakeFiles/cmTC_79aea.dir/build
+Building C object CMakeFiles/cmTC_79aea.dir/OpenMPTryFlag.c.o
+/Library/Developer/CommandLineTools/usr/bin/cc   -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_79aea.dir/OpenMPTryFlag.c.o   -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -mrelax-all -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.c -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_79aea.dir/OpenMPTryFlag.c.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fmax-type-align=16 -fdiagnostics-show-option -fopenmp -o CMakeFiles/cmTC_79aea.dir/OpenMPTryFlag.c.o -x c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_79aea.dir/OpenMPTryFlag.c.o] Error 1
+make: *** [cmTC_79aea/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_afa2c/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_afa2c.dir/build.make CMakeFiles/cmTC_afa2c.dir/build
+Building CXX object CMakeFiles/cmTC_afa2c.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp=libomp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_afa2c.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libomp' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_afa2c.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_afa2c/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0b725/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_0b725.dir/build.make CMakeFiles/cmTC_0b725.dir/build
+Building CXX object CMakeFiles/cmTC_0b725.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp=libiomp5 -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_0b725.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported argument 'libiomp5' to option 'fopenmp='
+make[1]: *** [CMakeFiles/cmTC_0b725.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_0b725/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_11f17/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_11f17.dir/build.make CMakeFiles/cmTC_11f17.dir/build
+Building CXX object CMakeFiles/cmTC_11f17.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_11f17.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+clang: error: unsupported option '-fopenmp'
+make[1]: *** [CMakeFiles/cmTC_11f17.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_11f17/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_bdac8/fast && /Library/Developer/CommandLineTools/usr/bin/make  -f CMakeFiles/cmTC_bdac8.dir/build.make CMakeFiles/cmTC_bdac8.dir/build
+Building CXX object CMakeFiles/cmTC_bdac8.dir/OpenMPTryFlag.cpp.o
+/Library/Developer/CommandLineTools/usr/bin/c++    -O3 -std=c++11 -Xclang -fopenmp -v -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk   -o CMakeFiles/cmTC_bdac8.dir/OpenMPTryFlag.cpp.o -c /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Apple clang version 11.0.3 (clang-1103.0.32.62)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+ "/Library/Developer/CommandLineTools/usr/bin/clang" -cc1 -triple x86_64-apple-macosx10.15.0 -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -disable-llvm-verifier -discard-value-names -main-file-name OpenMPTryFlag.cpp -mrelocation-model pic -pic-level 2 -mthread-model posix -mframe-pointer=all -fno-strict-return -masm-verbose -munwind-tables -target-sdk-version=10.15.4 -target-cpu penryn -dwarf-column-info -debugger-tuning=lldb -target-linker-version 556.6 -v -coverage-notes-file /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_bdac8.dir/OpenMPTryFlag.cpp.gcno -resource-dir /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk -stdlib=libc++ -internal-isystem /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1 -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include -internal-isystem /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include -internal-externc-isystem /Library/Developer/CommandLineTools/usr/include -O3 -Wno-objc-signed-char-bool-implicit-int-conversion -Wno-extra-semi-stmt -Wno-quoted-include-in-framework-header -std=c++11 -fdeprecated-macro -fdebug-compilation-dir /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/CMakeTmp -ferror-limit 19 -fmessage-length 0 -stack-protector 1 -fstack-check -mdarwin-stkchk-strong-link -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fobjc-runtime=macosx-10.15.0 -fcxx-exceptions -fexceptions -fmax-type-align=16 -fdiagnostics-show-option -vectorize-loops -vectorize-slp -fopenmp -o CMakeFiles/cmTC_bdac8.dir/OpenMPTryFlag.cpp.o -x c++ /Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+clang -cc1 version 11.0.3 (clang-1103.0.32.62) default target x86_64-apple-darwin19.6.0
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/v1"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/local/include"
+ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/Library/Frameworks"
+#include "..." search starts here:
+#include <...> search starts here:
+ /Library/Developer/CommandLineTools/usr/bin/../include/c++/v1
+ /Library/Developer/CommandLineTools/usr/lib/clang/11.0.3/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include
+ /Library/Developer/CommandLineTools/usr/include
+ /Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/System/Library/Frameworks (framework directory)
+End of search list.
+/Users/chris/Developer/FiMi-Fitness-Smart-Mirror/estimator/cmake-build-debug/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:10: fatal error: 'omp.h' file not found
+#include <omp.h>
+         ^~~~~~~
+1 error generated.
+make[1]: *** [CMakeFiles/cmTC_bdac8.dir/OpenMPTryFlag.cpp.o] Error 1
+make: *** [cmTC_bdac8/fast] Error 2
+
+
+

@@ -1,0 +1,40 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Create Release
+
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    name: Create Release
+    runs-on: ubuntu-latest
+    steps:
+    
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - run: |
+          git fetch --prune --unshallow --tags
+
+      - name: Create changelogs
+        id: changelogs
+        uses: heineiuo/create-changelogs@master
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            ${{ steps.changelogs.outputs.changelogs }}
+          draft: false
+          prerelease: ${{ steps.changelogs.outputs.release_type == 'prerelease' }}
