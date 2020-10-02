@@ -67,7 +67,11 @@ FOREACH(f ${ALL_FILES})
   SOURCE_GROUP("${SRCGR}" FILES ${f})
 ENDFOREACH()
 
-cuda_add_executable(${PROJECT_NAME} ${ALL_CPP_FILES} ${ALL_HPP_FILES})
+IF(${CUDA_FOUND})
+    cuda_add_executable(${PROJECT_NAME} ${ALL_CPP_FILES} ${ALL_HPP_FILES})
+else()
+    add_executable(${PROJECT_NAME} ${ALL_CPP_FILES} ${ALL_HPP_FILES})
+endif()
 
 #MESSAGE(STATUS "All external libs: ${EXTERN_LIBS}")
 TARGET_LINK_LIBRARIES(${PROJECT_NAME} ${EXTERN_LIBS})
