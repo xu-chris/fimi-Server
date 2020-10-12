@@ -82,18 +82,23 @@ void writeCameraFPS(cv::Mat &frame, double time) {
     writeTextOnImage(frame, fpsText, position);
 }
 
-class Job {
+class PoseEstimatorServer {
 private:
+    int portNumber;
+    bool isSendDataToUnity;
+    bool isShowWindow;
+
     WebsocketServer server;
     asio::io_service mainEventLoop;
     XNECT xnect;
 
 public:
+    bool isRecordForSimulation;
 
-    Job() {
+    PoseEstimatorServer(int portNumber = 8080, bool sendDataToUnity = true, bool showWindow = true, bool isRecordForSimulation = false) : portNumber(portNumber), isSendDataToUnity(sendDataToUnity), isShowWindow(showWindow), isRecordForSimulation(isRecordForSimulation) {
         //Start the networking thread
         std::thread serverThread([this]() {
-            server.run(PORT_NUMBER);
+            server.run(this->portNumber);
         });
 
         //Start the event loop for the main thread
@@ -158,7 +163,7 @@ public:
 
     }
 
-    void processImage(cv::Mat &frame, bool showImage = true, const std::string& windowName = "main", bool sendToUnity = true) {
+    void processImage(cv::Mat &frame, const std::string& windowName = "main") {
 
         flip(frame, frame, 1);
         int frame_width = frame.cols;
@@ -169,7 +174,7 @@ public:
 
         xnect.processImg(frame);
 
-        if (sendToUnity) {
+        if (isSendDataToUnity) {
             std::string data = xnect.getUnityData();
             sendDataToUnity(data);
         }
@@ -180,7 +185,7 @@ public:
 
         writeFPS(frame, fps);
 
-        if (showImage) {
+        if (isShowWindow) {
             cv::namedWindow(windowName);
             imshow(windowName, frame);
         }
@@ -210,7 +215,7 @@ public:
             cv::Mat frame;
             cap >> frame;
 
-            processImage(frame, SHOW_WINDOW);
+            processImage(frame);
 
             char ch = cv::waitKey(1);
 
@@ -261,7 +266,7 @@ public:
                 break;
             }
 
-            processImage(frame, SHOW_WINDOW);
+            processImage(frame);
             writeCameraFPS(frame, cap.get(cv::CAP_PROP_FPS));
             video.write(frame);
 
@@ -299,7 +304,7 @@ public:
                 break;
             }
 
-            processImage(frame, true);
+            processImage(frame);
             const std::string &dataString = xnect.getUnityData();
             auto stop = std::chrono::high_resolution_clock::now();
             auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -322,28 +327,40 @@ public:
         xnect.save_raw_joint_positions(".");
         storeVectorToFile(data, "test.mock");
     }
+
+    void start() {
+
+        mainEventLoop.post([this]{
+            playLive();
+        });
+
+        mainEventLoop.run();
+    }
+
+    void start(const std::string& videoFileInputPath, bool repeatVideo = false) {
+
+        mainEventLoop.post([this, &videoFileInputPath, repeatVideo]{
+            do {
+                readVideoSeq(videoFileInputPath);
+            } while (repeatVideo);
+        });
+
+        mainEventLoop.run();
+    }
 };
 
 int main() {
 
     std::vector<DelayPerData> data = readFromFile("./test.mock");
-    Job job;
+    PoseEstimatorServer server;
 
     switch (mode) {
         case Mode::LIVE: {
-            if (!job.playLive()) {
-                return 1;
-            }
+            server.start();
             break;
         }
         case Mode::VIDEOINPUT: {
-            do {
-                job.readVideoSeq(videoFilePath);
-            } while (REPEAT_VIDEO);
-            break;
-        }
-        case Mode::SIMULATION_RECORDING: {
-            job.recordSimulation(videoFilePath);
+            server.start(videoFilePath, REPEAT_VIDEO);
             break;
         }
     }
