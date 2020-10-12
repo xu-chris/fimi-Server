@@ -1,7 +1,7 @@
 // xnect.cpp : Defines the entry point for the console application.
 //
 
-#include "xnect.hpp"
+#include "periphery/xnect/xnect.hpp"
 #include <sys/timeb.h>
 #include <time.h>
 #include "domainvalue/Mode.h"
