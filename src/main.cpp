@@ -2,6 +2,8 @@
 //
 
 #include "periphery/xnect/xnect.hpp"
+#include "periphery/WebsocketServer.h"
+
 #include <sys/timeb.h>
 #include <time.h>
 #include "domainvalue/Mode.h"
@@ -11,7 +13,9 @@
 #include <fstream>
 #include <stdlib.h>
 #include <chrono> 
+#include <asio/io_service.hpp>
 
+#define PORT_NUMBER 8080
 #define SHOW_WINDOW 1
 #define REPEAT_VIDEO 0
 Mode mode = Mode::LIVE;
@@ -57,6 +61,10 @@ std::vector<DelayPerData> readFromFile(std::string fileNameWithPath) {
     }
 	file.close();
     return data;
+}
+
+void sendDataToUnity(WebsocketServer &server, std::string data) {
+	server.broadcastMessage(data);
 }
 
 void drawBones(cv::Mat &img, XNECT &xnect, int person)
@@ -129,7 +137,7 @@ void writeCameraFPS(cv::Mat &frame, double time)
     writeTextOnImage(frame, fpsText, position);
 }
 
-void processImage(cv::Mat &frame, XNECT &xnect, bool showImage = true, std::string windowName = "main", bool sendToUnity = true) {
+void processImage(cv::Mat &frame, XNECT &xnect, WebsocketServer &server, bool showImage = true, std::string windowName = "main", bool sendToUnity = true) {
 
 	flip(frame, frame, 1);
 	int frame_width = frame.cols;
@@ -141,7 +149,8 @@ void processImage(cv::Mat &frame, XNECT &xnect, bool showImage = true, std::stri
     xnect.processImg(frame);
 
     if (sendToUnity) {
-        xnect.sendDataToUnity();
+		std::string data = xnect.getUnityData();
+		sendDataToUnity(server, data);
     }
     drawPeople(frame, xnect);
     cv::resize(frame, frame, cv::Size(frame_width, frame_height), 0, 0, cv::INTER_LINEAR);
@@ -156,7 +165,7 @@ void processImage(cv::Mat &frame, XNECT &xnect, bool showImage = true, std::stri
     }
 }
 
-bool playLive(XNECT &xnect)
+bool playLive(XNECT &xnect, WebsocketServer &server)
 {
 	cv::VideoCapture cap;
 
@@ -182,7 +191,7 @@ bool playLive(XNECT &xnect)
 		cv::Mat frame;
 		cap >> frame;
 
-		processImage(frame, xnect, SHOW_WINDOW);
+		processImage(frame, xnect, server, SHOW_WINDOW);
 
 		char ch = cv::waitKey(1);
 
@@ -208,7 +217,7 @@ bool playLive(XNECT &xnect)
 	return true;
 }
 
-void readVideoSeq(XNECT &xnect, std::string videoFilePath)
+void readVideoSeq(XNECT &xnect, WebsocketServer &server, std::string videoFilePath)
 {
     cv::VideoCapture cap(videoFilePath);
 
@@ -235,7 +244,7 @@ void readVideoSeq(XNECT &xnect, std::string videoFilePath)
 			break;
 		}
 
-        processImage(frame, xnect, SHOW_WINDOW);
+        processImage(frame, xnect, server, SHOW_WINDOW);
 		writeCameraFPS(frame, cap.get(cv::CAP_PROP_FPS));
 		video.write(frame);
 
@@ -246,7 +255,7 @@ void readVideoSeq(XNECT &xnect, std::string videoFilePath)
     }
 }
 
-void recordSimulation(XNECT &xnect, std::string videoFilePath) {
+void recordSimulation(XNECT &xnect, WebsocketServer &server, std::string videoFilePath) {
     cv::VideoCapture cap(videoFilePath);
 
     if (!cap.isOpened()) {
@@ -271,7 +280,7 @@ void recordSimulation(XNECT &xnect, std::string videoFilePath) {
 			break;
 		}
 
-        processImage(frame, xnect, true);
+        processImage(frame, xnect, server, true);
         const std::string& dataString = xnect.getUnityData();
 		auto stop = std::chrono::high_resolution_clock::now();
 		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
@@ -319,35 +328,51 @@ void playSimulation(std::string recordingFileNameWithPath) {
 
 int main()
 {
-	switch(mode) {
-		case Mode::LIVE: {
-			XNECT xnect;
-			if (playLive(xnect) == false) {
-				return 1;
-			}
-			xnect.save_joint_positions(".");
-			xnect.save_raw_joint_positions(".");
-			break;
-		}
-	    case Mode::SIMULATION:
-	        playSimulation(recordingsFilePath + "test.mock");
-	        break;
-		case Mode::VIDEOINPUT: {
-			XNECT xnect;
-			do {
-				readVideoSeq(xnect, videoFilePath);
-			} while (REPEAT_VIDEO);
-			xnect.save_joint_positions(".");
-			xnect.save_raw_joint_positions(".");
-			break;
-		}
-		case Mode::SIMULATION_RECORDING: {
-			XNECT xnect;
-			recordSimulation(xnect, videoFilePath);
-			break;
-		}
-	}
 
+	//Create the event loop for the main thread, and the WebSocket server
+	asio::io_service mainEventLoop;
+
+	std::vector<DelayPerData> data = readFromFile("./test.mock");
+
+	WebsocketServer server;
+
+	//Start the networking thread
+	std::thread serverThread([&server]() {
+		server.run(PORT_NUMBER);
+	});
+
+	//Start the event loop for the main thread
+	asio::io_service::work work(mainEventLoop);
+
+	switch (mode) {
+	case Mode::LIVE: {
+		XNECT xnect;
+		if (playLive(xnect, server) == false) {
+			return 1;
+		}
+		xnect.save_joint_positions(".");
+		xnect.save_raw_joint_positions(".");
+		break;
+	}
+	case Mode::SIMULATION:
+		playSimulation(recordingsFilePath + "test.mock");
+		break;
+	case Mode::VIDEOINPUT: {
+		XNECT xnect;
+		do {
+			readVideoSeq(xnect, server, videoFilePath);
+		} while (REPEAT_VIDEO);
+		xnect.save_joint_positions(".");
+		xnect.save_raw_joint_positions(".");
+		break;
+	}
+	case Mode::SIMULATION_RECORDING: {
+		XNECT xnect;
+		recordSimulation(xnect, server, videoFilePath);
+		break;
+	}
+	}
+	
 	return 0;
 }
 
