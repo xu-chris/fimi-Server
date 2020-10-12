@@ -7,7 +7,6 @@
 #include <sys/timeb.h>
 #include <time.h>
 #include "domainvalue/Mode.h"
-#include "CWebSocketServer.hpp"
 #include "domainobject/DelayPerData.h"
 #include <iostream>
 #include <fstream>
@@ -302,30 +301,6 @@ void recordSimulation(XNECT &xnect, WebsocketServer &server, std::string videoFi
     storeVectorToFile(data, "test.mock");
 }
 
-void playSimulation(std::string recordingFileNameWithPath) {
-
-    std::vector<DelayPerData> data = readFromFile(recordingFileNameWithPath);
-
-    Common::CWebSocketServer m_WSTransceiver;
-    std::cout << "INFO: Attempting to started websocket server on 8080." << std::endl;
-    m_WSTransceiver.Initialize();
-    m_WSTransceiver.StartServer("8080", "..");
-
-    while(1) {
-        for (int i = 0; i < data.size(); i++) {
-            DelayPerData singleData = data[i];
-			std::cout << "Sending data after " + std::to_string(singleData.delay) + "ms\n";
-            _sleep(singleData.delay);
-            m_WSTransceiver.SendData(singleData.data);
-        }
-
-        // Press  ESC on keyboard to exit
-        char c = (char) cv::waitKey(25);
-        if(c == 27)
-            break;
-    }
-}
-
 int main()
 {
 
@@ -354,9 +329,6 @@ int main()
 		xnect.save_raw_joint_positions(".");
 		break;
 	}
-	case Mode::SIMULATION:
-		playSimulation(recordingsFilePath + "test.mock");
-		break;
 	case Mode::VIDEOINPUT: {
 		XNECT xnect;
 		do {

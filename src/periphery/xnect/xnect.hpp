@@ -8,12 +8,8 @@
 #include "xnect_implementation.h"
 #include <caffe/caffe.hpp>
 
-#include "CWebSocketServer.hpp"
-
 #include <modelDescriptor.cpp>
 #include <modelDescriptorFactory.cpp>
-
-CWEBSOCKETS_STATIC_DEFINITIONS
 
 using namespace caffe;
 
@@ -38,17 +34,12 @@ private:
 	std::shared_ptr<caffe::Net<float>> m_FirstNet;
 	std::shared_ptr<caffe::Net<float>> m_SecondNet;
 	int m_NumChannels, m_NumFeatSecondNet,m_PersonOffset;
-	Common::CWebSocketServer m_WSTransceiver;
 	
 	
 	void WrapInputLayer(std::vector<cv::Mat>* input_channels_color,float *input_data);
 	void Preprocess(const cv::Mat& img, std::vector<cv::Mat>* input_channels_color);
 };
 
-void XNECT::sendDataToUnity()
-{
-	m_WSTransceiver.SendData(getUnityData());
-}
 XNECT::XNECT(std::string configFile ) : XNECT_implementation(configFile = "../../data/FullBodyTracker/")
 {
 
@@ -88,12 +79,6 @@ XNECT::XNECT(std::string configFile ) : XNECT_implementation(configFile = "../..
 	cudaGetDeviceProperties(&props, device_id);
 
 	std::cout << "using GPU: " << props.name << std::endl;
-
-
-	std::cout << "INFO: Attempting to started websocket server on 8080." << std::endl;;
-	m_WSTransceiver.Initialize();
-	m_WSTransceiver.StartServer("8080", "..");
-
 }
 
 void XNECT::WrapInputLayer(std::vector<cv::Mat>* input_channels_color,float *input_data)
