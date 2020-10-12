@@ -11,6 +11,7 @@
 #include <iostream>
 #include <chrono>
 #include <asio/io_service.hpp>
+#include <thread>
 
 #define PORT_NUMBER 8080
 #define SHOW_WINDOW 1
@@ -292,9 +293,6 @@ void recordSimulation(XNECT &xnect, WebsocketServer &server, std::string videoFi
 
 int main() {
 
-    //Create the event loop for the main thread, and the WebSocket server
-    asio::io_service mainEventLoop;
-
     std::vector<DelayPerData> data = readFromFile("./test.mock");
 
     WebsocketServer server;
@@ -304,34 +302,34 @@ int main() {
         server.run(PORT_NUMBER);
     });
 
-    //Start the event loop for the main thread
-    asio::io_service::work work(mainEventLoop);
+	switch (mode) {
+		case Mode::LIVE: {
+			XNECT xnect;
+			if (playLive(xnect, server) == false) {
+				return 1;
+			}
+			xnect.save_joint_positions(".");
+			xnect.save_raw_joint_positions(".");
+			break;
+		}
+		case Mode::VIDEOINPUT: {
+			XNECT xnect;
+			do {
+				readVideoSeq(xnect, server, videoFilePath);
+			} while (REPEAT_VIDEO);
+			xnect.save_joint_positions(".");
+			xnect.save_raw_joint_positions(".");
+			break;
+		}
+		case Mode::SIMULATION_RECORDING: {
+			XNECT xnect;
+			recordSimulation(xnect, server, videoFilePath);
+			break;
+		}
+	}
 
-    switch (mode) {
-        case Mode::LIVE: {
-            XNECT xnect;
-            if (playLive(xnect, server) == false) {
-                return 1;
-            }
-            xnect.save_joint_positions(".");
-            xnect.save_raw_joint_positions(".");
-            break;
-        }
-        case Mode::VIDEOINPUT: {
-            XNECT xnect;
-            do {
-                readVideoSeq(xnect, server, videoFilePath);
-            } while (REPEAT_VIDEO);
-            xnect.save_joint_positions(".");
-            xnect.save_raw_joint_positions(".");
-            break;
-        }
-        case Mode::SIMULATION_RECORDING: {
-            XNECT xnect;
-            recordSimulation(xnect, server, videoFilePath);
-            break;
-        }
-    }
+	//Block the main thread until the server thread has completed
+	serverThread.join();
 
     return 0;
 }

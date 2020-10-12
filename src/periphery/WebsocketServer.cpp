@@ -94,5 +94,5 @@ void WebsocketServer::onClose(const ClientConnection &conn) {
 }
 
 void WebsocketServer::onMessage(const websocketpp::connection_hdl& hdl, const WebsocketEndpoint::message_ptr& msg) {
-    messageHandler(msg->get_payload());
+    std::cout << "Message received: " << msg->get_payload() << "\n";
 }
