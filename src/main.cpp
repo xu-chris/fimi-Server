@@ -5,12 +5,13 @@
 #include "periphery/WebsocketServer.h"
 
 #include <sys/timeb.h>
-#include <time.h>
+#include <ctime>
 #include "domainvalue/Mode.h"
 #include "domainobject/DelayPerData.h"
 #include <iostream>
 #include <chrono>
 #include <asio/io_service.hpp>
+#include <thread>
 
 #define PORT_NUMBER 8080
 #define SHOW_WINDOW 1
@@ -28,7 +29,8 @@ std::string currentDateTimeString() {
            "-" + std::to_string(1 + ltm->tm_hour) + std::to_string(1 + ltm->tm_min) + std::to_string(1 + ltm->tm_sec);
 }
 
-void storeVectorToFile(std::vector<DelayPerData> data, const std::string &fileName = currentDateTimeString() + ".mock") {
+void
+storeVectorToFile(std::vector<DelayPerData> data, const std::string &fileName = currentDateTimeString() + ".mock") {
     fstream recordingFile(recordingsFilePath + fileName, ios::out);
 
     if (!recordingFile.is_open()) {
@@ -61,6 +63,53 @@ std::vector<DelayPerData> readFromFile(const std::string &fileNameWithPath) {
     return data;
 }
 
+void sendDataToUnity(WebsocketServer &server, const std::string &data) {
+    server.broadcastMessage(data);
+}
+
+void drawBones(cv::Mat &img, XNECT &xnect, int person) {
+    //int numOfJoints = xnect.getNumOf3DJoints() - 2; // don't render feet, can be unstable
+    int numOfJoints = xnect.getNumOf3DJoints();
+
+    for (int i = 0; i < numOfJoints; i++) {
+        int parentID = xnect.getJoint3DParent(i);
+        if (parentID == -1) continue;
+        // lookup 2 connected body/hand parts
+        cv::Point2f partA = xnect.ProjectWithIntrinsics(xnect.getJoint3DIK(person, i));
+        cv::Point2f partB = xnect.ProjectWithIntrinsics(xnect.getJoint3DIK(person, parentID));
+
+
+        if (partA.x <= 0 || partA.y <= 0 || partB.x <= 0 || partB.y <= 0)
+            continue;
+
+        line(img, partA, partB, xnect.getPersonColor(person), 4);
+
+    }
+
+}
+
+void drawJoints(cv::Mat &img, XNECT &xnect, int person) {
+
+    //int numOfJoints = xnect.getNumOf3DJoints() - 2; // don't render feet, can be unstable
+    int numOfJoints = xnect.getNumOf3DJoints();
+    for (int i = 0; i < numOfJoints; i++) {
+        int thickness = -1;
+        int lineType = 8;
+        cv::Point2f point2D = xnect.ProjectWithIntrinsics(xnect.getJoint3DIK(person, i));
+        cv::circle(img, point2D, 6, xnect.getPersonColor(person), -1);
+
+    }
+}
+
+void drawPeople(cv::Mat &img, XNECT &xnect) {
+    for (int i = 0; i < xnect.getNumOfPeople(); i++)
+        if (xnect.isPersonActive(i)) {
+            drawBones(img, xnect, i);
+            drawJoints(img, xnect, i);
+        }
+
+}
+
 void writeTextOnImage(cv::Mat &frame, const std::string &text, const cv::Point &position) {
     cv::putText(frame, text, cv::Point(position.x + 1, position.y + 1), cv::FONT_HERSHEY_PLAIN, 1, cv::Scalar(0, 0, 0),
                 1);
@@ -82,288 +131,207 @@ void writeCameraFPS(cv::Mat &frame, double time) {
     writeTextOnImage(frame, fpsText, position);
 }
 
-class PoseEstimatorServer {
-private:
-    int portNumber;
-    bool isSendDataToUnity;
-    bool isShowWindow;
+void processImage(cv::Mat &frame, XNECT &xnect, WebsocketServer &server, bool showImage = true,
+                  const std::string& windowName = "main", bool sendToUnity = true) {
 
-    WebsocketServer server;
-    asio::io_service mainEventLoop;
-    XNECT xnect;
+    flip(frame, frame, 1);
+    int frame_width = frame.cols;
+    int frame_height = frame.rows;
+    int64 start = cv::getTickCount();
 
-public:
-    bool isRecordForSimulation;
+    if (frame.empty()) return;
 
-    PoseEstimatorServer(int portNumber = 8080, bool sendDataToUnity = true, bool showWindow = true, bool isRecordForSimulation = false) : portNumber(portNumber), isSendDataToUnity(sendDataToUnity), isShowWindow(showWindow), isRecordForSimulation(isRecordForSimulation) {
-        //Start the networking thread
-        std::thread serverThread([this]() {
-            server.run(this->portNumber);
-        });
+    xnect.processImg(frame);
 
-        //Start the event loop for the main thread
-        asio::io_service::work work(mainEventLoop);
-
-        server.messageHandler = [this](const std::string& message) {
-            if (message == "calibrate")
-                calibrateSkeletons();
-            else
-                std::cout << "Message received: " + message + "\n";
-        };
+    if (sendToUnity) {
+        std::string data = xnect.getUnityData();
+        sendDataToUnity(server, data);
     }
+    drawPeople(frame, xnect);
+    cv::resize(frame, frame, cv::Size(frame_width, frame_height), 0, 0, cv::INTER_LINEAR);
+    int64 end = cv::getTickCount();
+    double fps = cv::getTickFrequency() / (end - start);
 
-    void sendDataToUnity(const std::string &data) {
-        server.broadcastMessage(data);
+    writeFPS(frame, fps);
+
+    if (showImage) {
+        cv::namedWindow(windowName);
+        imshow(windowName, frame);
     }
+}
 
-    void calibrateSkeletons() {
-        xnect.rescaleSkeletons();
+bool playLive(XNECT &xnect, WebsocketServer &server) {
+    cv::VideoCapture cap;
+
+    if (!cap.open(0)) {
+        std::cout << "Can't open webcam!\n";
+        cv::waitKey(0);
+        return false;
     }
+    if (!(cap.set(CV_CAP_PROP_FRAME_WIDTH, xnect.processWidth) &&
+          cap.set(CV_CAP_PROP_FRAME_HEIGHT, xnect.processHeight))) {
 
-    void drawBones(cv::Mat &img, int person) {
-        //int numOfJoints = xnect.getNumOf3DJoints() - 2; // don't render feet, can be unstable
-        int numOfJoints = xnect.getNumOf3DJoints();
-
-        for (int i = 0; i < numOfJoints; i++) {
-            int parentID = xnect.getJoint3DParent(i);
-            if (parentID == -1) continue;
-            // lookup 2 connected body/hand parts
-            cv::Point2f partA = xnect.ProjectWithIntrinsics(xnect.getJoint3DIK(person, i));
-            cv::Point2f partB = xnect.ProjectWithIntrinsics(xnect.getJoint3DIK(person, parentID));
-
-
-            if (partA.x <= 0 || partA.y <= 0 || partB.x <= 0 || partB.y <= 0)
-                continue;
-
-            line(img, partA, partB, xnect.getPersonColor(person), 4);
-
-        }
-
+        std::cout << "[ ERROR ]: the connected webcam does not support " << xnect.processWidth << " x "
+                  << xnect.processHeight << " resolution." << std::endl;
+        cv::waitKey(0);
+        return false;
     }
+    // open the default camera, use something different from 0 otherwise;
+    // Check VideoCapture documentation.
 
-    void drawJoints(cv::Mat &img, int person) {
+    for (;;) {
 
-        //int numOfJoints = xnect.getNumOf3DJoints() - 2; // don't render feet, can be unstable
-        int numOfJoints = xnect.getNumOf3DJoints();
-        for (int i = 0; i < numOfJoints; i++) {
-            int thickness = -1;
-            int lineType = 8;
-            cv::Point2f point2D = xnect.ProjectWithIntrinsics(xnect.getJoint3DIK(person, i));
-            cv::circle(img, point2D, 6, xnect.getPersonColor(person), -1);
-
-        }
-    }
-
-    void drawPeople(cv::Mat &img) {
-        for (int i = 0; i < xnect.getNumOfPeople(); i++)
-            if (xnect.isPersonActive(i)) {
-                drawBones(img, i);
-                drawJoints(img, i);
-            }
-
-    }
-
-    void processImage(cv::Mat &frame, const std::string& windowName = "main") {
-
-        flip(frame, frame, 1);
-        int frame_width = frame.cols;
-        int frame_height = frame.rows;
-        int64 start = cv::getTickCount();
-
-        if (frame.empty()) return;
-
-        xnect.processImg(frame);
-
-        if (isSendDataToUnity) {
-            std::string data = xnect.getUnityData();
-            sendDataToUnity(data);
-        }
-        drawPeople(frame);
-        cv::resize(frame, frame, cv::Size(frame_width, frame_height), 0, 0, cv::INTER_LINEAR);
-        int64 end = cv::getTickCount();
-        double fps = cv::getTickFrequency() / (end - start);
-
-        writeFPS(frame, fps);
-
-        if (isShowWindow) {
-            cv::namedWindow(windowName);
-            imshow(windowName, frame);
-        }
-    }
-
-    bool playLive() {
-        cv::VideoCapture cap;
-
-        if (!cap.open(0)) {
-            std::cout << "Can't open webcam!\n";
-            cv::waitKey(0);
-            return false;
-        }
-        if (!(cap.set(CV_CAP_PROP_FRAME_WIDTH, xnect.processWidth) &&
-              cap.set(CV_CAP_PROP_FRAME_HEIGHT, xnect.processHeight))) {
-
-            std::cout << "[ ERROR ]: the connected webcam does not support " << xnect.processWidth << " x "
-                      << xnect.processHeight << " resolution." << std::endl;
-            cv::waitKey(0);
-            return false;
-        }
-        // open the default camera, use something different from 0 otherwise;
-        // Check VideoCapture documentation.
-
-        for (;;) {
-
-            cv::Mat frame;
-            cap >> frame;
-
-            processImage(frame);
-
-            char ch = cv::waitKey(1);
-
-            if (ch == 27) break; // stop capturing by pressing ESC
-
-            if (ch == 'p' || ch == 'P') {
-                xnect.rescaleSkeletons();
-                std::cout << "rescaling" << std::endl;
-
-            }
-
-            if (ch == 'r' || ch == 'R') {
-                xnect.resetSkeletons();
-                std::cout << "resetting" << std::endl;
-            }
-
-
-        }
-        // the camera will be closed automatically upon exit
-        xnect.save_joint_positions(".");
-        xnect.save_raw_joint_positions(".");
-        return true;
-    }
-
-    void readVideoSeq(const std::string& videoFilePath) {
-        cv::VideoCapture cap(videoFilePath);
-
-        if (!cap.isOpened()) {
-            std::cout << "Error opening video file with path " << videoFilePath << ". Probably the file is missing?";
-            return;
-        }
-
-        // Default resolution of the frame is obtained.The default resolution is system dependent.
-        cv::Mat frame;
-        cap >> frame;
-        int frame_width = frame.cols;
-        int frame_height = frame.rows;
-
-        std::string fileName = currentDateTimeString() + "-pose_estimation_recording.avi";
-        cv::VideoWriter video(recordingsFilePath + fileName, CV_FOURCC('M', 'J', 'P', 'G'), 10,
-                              cv::Size(frame_width, frame_height));
-
-        while (true) {
-
-            cap >> frame;
-
-            if (frame.empty()) {
-                break;
-            }
-
-            processImage(frame);
-            writeCameraFPS(frame, cap.get(cv::CAP_PROP_FPS));
-            video.write(frame);
-
-            // Press  ESC on keyboard to exit
-            char c = (char) cv::waitKey(25);
-            if (c == 27)
-                break;
-        }
-
-        xnect.save_joint_positions(".");
-        xnect.save_raw_joint_positions(".");
-    }
-
-    void recordSimulation(const std::string& videoFilePath) {
-        cv::VideoCapture cap(videoFilePath);
-
-        if (!cap.isOpened()) {
-            std::cout << "Error opening video file with path " << videoFilePath << ". Probably the file is missing?";
-            return;
-        }
-
-        // Default resolution of the frame is obtained.The default resolution is system dependent.
         cv::Mat frame;
         cap >> frame;
 
-        std::vector<DelayPerData> data;
-        int frameIterator = 0;
-        while (true) {
-            std::cout << "Processing frame " + std::to_string(frameIterator) + "     \r";
-            auto start = std::chrono::high_resolution_clock::now();
+        processImage(frame, xnect, server, SHOW_WINDOW);
 
-            cap >> frame;
+        char ch = cv::waitKey(1);
 
-            if (frame.empty()) {
-                break;
-            }
+        if (ch == 27) break; // stop capturing by pressing ESC
 
-            processImage(frame);
-            const std::string &dataString = xnect.getUnityData();
-            auto stop = std::chrono::high_resolution_clock::now();
-            auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-            DelayPerData newData(duration.count(), dataString);
-            data.push_back(newData);
+        if (ch == 'p' || ch == 'P') {
+            xnect.rescaleSkeletons();
+            std::cout << "rescaling" << std::endl;
 
-            // Press  ESC on keyboard to exit
-            char c = (char) cv::waitKey(25);
-            if (c == 27)
-                break;
-
-            frameIterator++;
         }
 
-        // When everything done, release the video capture object
-        cap.release();
-        cv::destroyAllWindows();
+        if (ch == 'r' || ch == 'R') {
+            xnect.resetSkeletons();
+            std::cout << "resetting" << std::endl;
+        }
 
-        xnect.save_joint_positions(".");
-        xnect.save_raw_joint_positions(".");
-        storeVectorToFile(data, "test.mock");
+
+    }
+    // the camera will be closed automatically upon exit
+
+    return true;
+}
+
+void readVideoSeq(XNECT &xnect, WebsocketServer &server, const std::string& videoFilePath) {
+    cv::VideoCapture cap(videoFilePath);
+
+    if (!cap.isOpened()) {
+        std::cout << "Error opening video file with path " << videoFilePath << ". Probably the file is missing?";
+        return;
     }
 
-    void start() {
+    // Default resolution of the frame is obtained.The default resolution is system dependent.
+    cv::Mat frame;
+    cap >> frame;
+    int frame_width = frame.cols;
+    int frame_height = frame.rows;
 
-        mainEventLoop.post([this]{
-            playLive();
-        });
+    std::string fileName = currentDateTimeString() + "-pose_estimation_recording.avi";
+    cv::VideoWriter video(recordingsFilePath + fileName, CV_FOURCC('M', 'J', 'P', 'G'), 10,
+                          cv::Size(frame_width, frame_height));
 
-        mainEventLoop.run();
+    while (true) {
+
+        cap >> frame;
+
+        if (frame.empty()) {
+            break;
+        }
+
+        processImage(frame, xnect, server, SHOW_WINDOW);
+        writeCameraFPS(frame, cap.get(cv::CAP_PROP_FPS));
+        video.write(frame);
+
+        // Press  ESC on keyboard to exit
+        char c = (char) cv::waitKey(25);
+        if (c == 27)
+            break;
+    }
+}
+
+void recordSimulation(XNECT &xnect, WebsocketServer &server, const std::string& videoFilePath) {
+    cv::VideoCapture cap(videoFilePath);
+
+    if (!cap.isOpened()) {
+        std::cout << "Error opening video file with path " << videoFilePath << ". Probably the file is missing?";
+        return;
     }
 
-    void start(const std::string& videoFileInputPath, bool repeatVideo = false) {
+    // Default resolution of the frame is obtained.The default resolution is system dependent.
+    cv::Mat frame;
+    cap >> frame;
 
-        mainEventLoop.post([this, &videoFileInputPath, repeatVideo]{
-            do {
-                readVideoSeq(videoFileInputPath);
-            } while (repeatVideo);
-        });
+    std::vector<DelayPerData> data;
+    int frameIterator = 0;
+    while (true) {
+        std::cout << "Processing frame " + std::to_string(frameIterator) + "     \r";
+        auto start = std::chrono::high_resolution_clock::now();
 
-        mainEventLoop.run();
+        cap >> frame;
+
+        if (frame.empty()) {
+            break;
+        }
+
+        processImage(frame, xnect, server, true);
+        const std::string &dataString = xnect.getUnityData();
+        auto stop = std::chrono::high_resolution_clock::now();
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+        DelayPerData newData(duration.count(), dataString);
+        data.push_back(newData);
+
+        // Press  ESC on keyboard to exit
+        char c = (char) cv::waitKey(25);
+        if (c == 27)
+            break;
+
+        frameIterator++;
     }
-};
+
+    // When everything done, release the video capture object
+    cap.release();
+    cv::destroyAllWindows();
+
+    storeVectorToFile(data, "test.mock");
+}
 
 int main() {
 
     std::vector<DelayPerData> data = readFromFile("./test.mock");
-    PoseEstimatorServer server;
 
-    switch (mode) {
-        case Mode::LIVE: {
-            server.start();
-            break;
-        }
-        case Mode::VIDEOINPUT: {
-            server.start(videoFilePath, REPEAT_VIDEO);
-            break;
-        }
-    }
+    WebsocketServer server;
+
+    XNECT xnect;
+    server.message("rescaleSkeletons", [&xnect](const ClientConnection& conn, const std::string&)
+    {
+		std::cout << "Rescaling skeletons triggered by WebSocket client...\n";
+		xnect.resetSkeletons();
+		xnect.rescaleSkeletons();
+    });
+
+    //Start the networking thread
+    std::thread serverThread([&server]() {
+        server.run(PORT_NUMBER);
+    });
+
+	switch (mode) {
+		case Mode::LIVE: {
+			if (!playLive(xnect, server)) {
+				return 1;
+			}
+			xnect.save_joint_positions(".");
+			xnect.save_raw_joint_positions(".");
+			break;
+		}
+		case Mode::VIDEOINPUT: {
+			do {
+				readVideoSeq(xnect, server, videoFilePath);
+			} while (REPEAT_VIDEO);
+			xnect.save_joint_positions(".");
+			xnect.save_raw_joint_positions(".");
+			break;
+		}
+		case Mode::SIMULATION_RECORDING: {
+			recordSimulation(xnect, server, videoFilePath);
+			break;
+		}
+	}
 
     return 0;
 }
