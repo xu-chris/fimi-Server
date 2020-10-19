@@ -1,11 +1,11 @@
 # Configuration file for XNect
 
 # Number of frames to accumulate data for rescaling the length of bones
-RescaleFrameNum: 2
+RescaleFrameNum: 100
 
 # Maximum number of people to track and visualize. More can be tracked, but the scene becomes too clutterd
 # to make out anything. Keeping it at 10 would work for most reasonable scenarios
-MaxNumPeople: 1
+MaxNumPeople: 5
 
 ## Pre-recorded Sequence Camera Calibration
 ## Used for MuPoTS-3D Test seq from ts6-ts20
@@ -25,13 +25,18 @@ MaxNumPeople: 1
 
 ## Live Webcam Camera Calibration
 # camera type: webcam or playback
-ProcessHeight: 360
-ProcessWidth: 640
-FirstNetHeight: 320
-FirstNetWidth: 544
-OrigIntrinsics:  576, 0, 320, 0, 576, 240, 0, 0, 1
+#ProcessHeight: 360
+#ProcessWidth: 640
+#FirstNetHeight: 320
+#FirstNetWidth: 544
+#OrigIntrinsics:  576, 0, 320, 0, 576, 240, 0, 0, 1
 
-
+# Test for high quality images
+ProcessHeight: 1080
+ProcessWidth: 1920
+FirstNetHeight: 448
+FirstNetWidth: 736
+OrigIntrinsics: 1130, 0, 504, 0, 1130, 256, 0, 0, 1
 
 
 FirstNet: ../../data/CNNModels/XNECT/StageI/paper/net.prototxt

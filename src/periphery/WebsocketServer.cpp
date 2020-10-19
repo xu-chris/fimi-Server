@@ -94,5 +94,14 @@ void WebsocketServer::onClose(const ClientConnection &conn) {
 }
 
 void WebsocketServer::onMessage(const websocketpp::connection_hdl& hdl, const WebsocketEndpoint::message_ptr& msg) {
-    std::cout << "Message received: " << msg->get_payload() << "\n";
+    std::string message = msg->get_payload();
+
+    std::cout << "Message received: " << message << "\n";
+
+    //If any handlers are registered for the message type, invoke them
+    auto& handlers = this->messageHandlers[message];
+    std::cout << "Handlers usable for given message: " << handlers.size() << "\n";
+    for (auto handler : handlers) {
+        handler(hdl, message);
+    }
 }

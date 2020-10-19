@@ -291,11 +291,25 @@ void recordSimulation(XNECT &xnect, WebsocketServer &server, std::string videoFi
     storeVectorToFile(data, "test.mock");
 }
 
+void rescaleSkeletons(XNECT &xnect) {
+    std::cout << "Rescaling skeletons triggered by WebSocket client...";
+    xnect.rescaleSkeletons();
+}
+
 int main() {
 
     std::vector<DelayPerData> data = readFromFile("./test.mock");
 
     WebsocketServer server;
+
+    XNECT xnect;
+    server.message("rescaleSkeletons", [&server, &xnect](ClientConnection conn, const std::string)
+    {
+		std::cout << "Message handler triggered: rescaleSkeletons" << "\n";
+		std::cout << "Rescaling skeletons triggered by WebSocket client...";
+		xnect.resetSkeletons();
+		xnect.rescaleSkeletons();
+    });
 
     //Start the networking thread
     std::thread serverThread([&server]() {
@@ -304,7 +318,6 @@ int main() {
 
 	switch (mode) {
 		case Mode::LIVE: {
-			XNECT xnect;
 			if (playLive(xnect, server) == false) {
 				return 1;
 			}
@@ -313,7 +326,6 @@ int main() {
 			break;
 		}
 		case Mode::VIDEOINPUT: {
-			XNECT xnect;
 			do {
 				readVideoSeq(xnect, server, videoFilePath);
 			} while (REPEAT_VIDEO);
@@ -322,14 +334,10 @@ int main() {
 			break;
 		}
 		case Mode::SIMULATION_RECORDING: {
-			XNECT xnect;
 			recordSimulation(xnect, server, videoFilePath);
 			break;
 		}
 	}
-
-	//Block the main thread until the server thread has completed
-	serverThread.join();
 
     return 0;
 }
