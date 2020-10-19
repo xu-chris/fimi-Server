@@ -5,7 +5,7 @@
 #include "periphery/WebsocketServer.h"
 
 #include <sys/timeb.h>
-#include <time.h>
+#include <ctime>
 #include "domainvalue/Mode.h"
 #include "domainobject/DelayPerData.h"
 #include <iostream>
@@ -132,7 +132,7 @@ void writeCameraFPS(cv::Mat &frame, double time) {
 }
 
 void processImage(cv::Mat &frame, XNECT &xnect, WebsocketServer &server, bool showImage = true,
-                  std::string windowName = "main", bool sendToUnity = true) {
+                  const std::string& windowName = "main", bool sendToUnity = true) {
 
     flip(frame, frame, 1);
     int frame_width = frame.cols;
@@ -208,7 +208,7 @@ bool playLive(XNECT &xnect, WebsocketServer &server) {
     return true;
 }
 
-void readVideoSeq(XNECT &xnect, WebsocketServer &server, std::string videoFilePath) {
+void readVideoSeq(XNECT &xnect, WebsocketServer &server, const std::string& videoFilePath) {
     cv::VideoCapture cap(videoFilePath);
 
     if (!cap.isOpened()) {
@@ -245,7 +245,7 @@ void readVideoSeq(XNECT &xnect, WebsocketServer &server, std::string videoFilePa
     }
 }
 
-void recordSimulation(XNECT &xnect, WebsocketServer &server, std::string videoFilePath) {
+void recordSimulation(XNECT &xnect, WebsocketServer &server, const std::string& videoFilePath) {
     cv::VideoCapture cap(videoFilePath);
 
     if (!cap.isOpened()) {
@@ -291,11 +291,6 @@ void recordSimulation(XNECT &xnect, WebsocketServer &server, std::string videoFi
     storeVectorToFile(data, "test.mock");
 }
 
-void rescaleSkeletons(XNECT &xnect) {
-    std::cout << "Rescaling skeletons triggered by WebSocket client...";
-    xnect.rescaleSkeletons();
-}
-
 int main() {
 
     std::vector<DelayPerData> data = readFromFile("./test.mock");
@@ -303,10 +298,9 @@ int main() {
     WebsocketServer server;
 
     XNECT xnect;
-    server.message("rescaleSkeletons", [&server, &xnect](ClientConnection conn, const std::string)
+    server.message("rescaleSkeletons", [&xnect](const ClientConnection& conn, const std::string&)
     {
-		std::cout << "Message handler triggered: rescaleSkeletons" << "\n";
-		std::cout << "Rescaling skeletons triggered by WebSocket client...";
+		std::cout << "Rescaling skeletons triggered by WebSocket client...\n";
 		xnect.resetSkeletons();
 		xnect.rescaleSkeletons();
     });
@@ -318,7 +312,7 @@ int main() {
 
 	switch (mode) {
 		case Mode::LIVE: {
-			if (playLive(xnect, server) == false) {
+			if (!playLive(xnect, server)) {
 				return 1;
 			}
 			xnect.save_joint_positions(".");

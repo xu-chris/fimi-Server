@@ -88,7 +88,7 @@ void WebsocketServer::onClose(const ClientConnection &conn) {
     }
 
     //Invoke any registered handlers
-    for (auto handler : this->disconnectHandlers) {
+    for (const auto& handler : this->disconnectHandlers) {
         handler(conn);
     }
 }
@@ -101,7 +101,7 @@ void WebsocketServer::onMessage(const websocketpp::connection_hdl& hdl, const We
     //If any handlers are registered for the message type, invoke them
     auto& handlers = this->messageHandlers[message];
     std::cout << "Handlers usable for given message: " << handlers.size() << "\n";
-    for (auto handler : handlers) {
+    for (const auto& handler : handlers) {
         handler(hdl, message);
     }
 }
