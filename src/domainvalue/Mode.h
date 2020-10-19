@@ -7,7 +7,6 @@
 
 enum class Mode {
     LIVE,
-    SIMULATION,
     SIMULATION_RECORDING,
     VIDEOINPUT
 };
