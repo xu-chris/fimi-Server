@@ -36,7 +36,8 @@ ProcessHeight: 1080
 ProcessWidth: 1920
 FirstNetHeight: 448
 FirstNetWidth: 736
-OrigIntrinsics: 1130, 0, 504, 0, 1130, 256, 0, 0, 1
+OrigIntrinsics: 1491, 0, 945, 0, 1492, 528, 0, 0, 1
+
 
 
 FirstNet: ../../data/CNNModels/XNECT/StageI/paper/net.prototxt
