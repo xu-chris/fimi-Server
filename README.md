@@ -8,7 +8,7 @@ fimi generates a 3d pose estimation based on the webcam image and checks every f
 
 The application also compares your posture with your previous trainings while still being designed with privacy in mind. All your information is stored only temporarily while running the application on your PC or Mac, whereas the training data is stored on your smartphone directly. This also means that you could theoretically log in at your friend's house and have your profile with you.
 
-This is the pose estimation server of the fimi fitness mirror application. It sends repeatedly pose estimation data that were recorded previously with the [fimi Server](https://github.com/creichel/fimi-Server).
+This is the pose estimation server of the fimi fitness mirror application.
 
 ## Used technology
 - [XNECT C++ Library by Max Planck Institute](https://gvv.mpi-inf.mpg.de/projects/XNect/), revised and adapted
