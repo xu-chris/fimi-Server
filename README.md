@@ -42,6 +42,11 @@ This is the pose estimation server of the fimi fitness mirror application.
 This is based on https://tkcheng.wordpress.com/2019/04/11/caffe-on-windows-rtx-2080ti-cuda9-2-vs2015/
 
 1. After you have installed all dependencies above, clone Caffe (from XNECT branch: https://github.com/creichel/caffe/tree/net/xnect).
+  ```bash
+  git clone https://github.com/creichel/caffe.git
+  cd caffe
+  git checkout net/xnect
+  ```
 2. Call
   ```bash
   .\scripts\build_win.cmd
@@ -50,8 +55,9 @@ This is based on https://tkcheng.wordpress.com/2019/04/11/caffe-on-windows-rtx-2
 
 Building Caffe will fail since we want to use a customized version of boost that supports our CUDA version and architecture.
 
-For this, open `~\.caffe\dependencies\libraries_v140_x64_py35_1.1.0\libraries\include\boost-1_61\boost\config\compiler\nvcc.hpp` and comment out the last three lines:
+For this, open `~\.caffe\dependencies\libraries_v140_x64_py35_1.1.0\libraries\include\boost-1_61\boost\config\compiler\nvcc.hpp` and comment out the last three lines (commenting is done by adding `//` to it).
 
+It looks then like this:
 ```
 //#if !defined(__CUDACC_VER__) || (__CUDACC_VER__ < 70500)
 //#   define BOOST_NO_CXX11_VARIADIC_TEMPLATES
@@ -59,19 +65,27 @@ For this, open `~\.caffe\dependencies\libraries_v140_x64_py35_1.1.0\libraries\in
 ```
 
 ### 3. Build XNECT
-1. Add dependencies variables to `PATH`
+1. Add dependencies variables to `PATH`. On Windows, search via Cortana search bar for `System Environment Variables` and click on `Environment Variables` button in the lower right corner. Open `Path` variable and add the following below (change `<your-username>` to the user folder name of your current user):
 ```
+C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\lib\cmake\glog
+C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\cmake
 C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\lib
 C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\x64\vc14
+C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\include
+C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries
+C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\x64\vc14\bin
 ```
 
 2. Clone full git repository:
 ```bash
-git clone --recurse-submodules -j8 https://github.com/creichel/fimi-Server.git
+git clone --recurse-submodules -j8 https://github.com/creichel/fimi-Server.git fimi-Server
 ```
-3. Build it by calling
+3. Build it by calling (line by line)
 ```
-cd fimi-Server\evaluator\extern\xnect ; mkdir build ; cd build ; cmake -G "Visual Studio 14 Win64" -C ~\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\caffe-builder-config.cmake ..
+cd fimi-Server
+mkdir build
+cd build
+cmake -G "Visual Studio 14 Win64" -C ~\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libraries\caffe-builder-config.cmake ..
 ```
 
 ## Start it
@@ -96,4 +110,5 @@ You can set furthermore the following settings:
 
 ## Troubleshooting issues
 - **Caffe does not run with Python version >3.5**: Please note that caffe only supports Python 3.5 for now. If you try it first with any higher version. delete the `build` folder and restart the process.
+- **Missing `ZLIB_LIBRARY`**: Download ZLIB binary from the [official homepage](http://gnuwin32.sourceforge.net/packages/zlib.htm) and install it. Add `C:\Program Files (x86)\GnuWin32` to your PATH.
 - **Missing dependencies on executable start**: In some cases, you need to add and build further dependencies, like `zlib`. If you need and do so, don't forget to add the path to the package into `path` of your system environment variables.
