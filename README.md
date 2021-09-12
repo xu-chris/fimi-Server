@@ -1,6 +1,6 @@
 # fimi Server
 
-**Check out the [documentation of fimi](https://creichel.github.io/fimi-Documentation/) for full information about the whole system.**
+**Check out the [documentation of fimi](https://xu-chris.github.io/fimi-Documentation/) for full information about the whole system.**
 
 fimi is an application which tries to resemble a coach while you doing workout by analyzing your posture and giving you feedback about what you should watch more often. To run it, you need a **webcam**, a big screen and your smartphone (and some room space). You control the big screen with your smartphone by simply scanning the displayed QR code (being in the same wifi net is necessary).
 
@@ -41,9 +41,9 @@ This is the pose estimation server of the fimi fitness mirror application.
 ### 2. Build Caffe
 This is based on https://tkcheng.wordpress.com/2019/04/11/caffe-on-windows-rtx-2080ti-cuda9-2-vs2015/
 
-1. After you have installed all dependencies above, clone Caffe (from XNECT branch: https://github.com/creichel/caffe/tree/net/xnect).
+1. After you have installed all dependencies above, clone Caffe (from XNECT branch: https://github.com/xu-chris/caffe/tree/net/xnect).
   ```bash
-  git clone https://github.com/creichel/caffe.git
+  git clone https://github.com/xu-chris/caffe.git
   cd caffe
   git checkout net/xnect
   ```
@@ -78,7 +78,7 @@ C:\Users\<your-username>\.caffe\dependencies\libraries_v140_x64_py27_1.1.0\libra
 
 2. Clone full git repository:
 ```bash
-git clone --recurse-submodules -j8 https://github.com/creichel/fimi-Server.git fimi-Server
+git clone --recurse-submodules -j8 https://github.com/xu-chris/fimi-Server.git fimi-Server
 ```
 3. Build it by calling (line by line)
 ```
@@ -100,7 +100,7 @@ Check out the parameters in `\data\FullBodyTracker\XNECT` and adjust them to you
 The server has three different modes which can be switched by changing the parameter `mode` in `\src\main.cpp` to one of the following options:
 - **`Mode::LIVE`**: Capture the current webcam image and process the pose estimation on it
 - **`Mode::VIDEOINPUT`**: Fetch the video file stored in the parameter `videoFilePath` and process this. It also creates an output video and saves it in the path of the executable with the name `YYYY-MM-DD-HH-MM-SS-pose_estimation_recording.avi`.
-- **`Mode::SIMULATION_RECORDING`**: This is useful when you want to use mock data and the [fimi Mock Server](https://github.com/creichel/fimi-Mock-Server) for further development of the [fimi Client](https://github.com/creichel/fimi-Client). It fetches the video file stored in the parameter `videoFilePath` and processes this. It creates a `test.mock` file which contains per line: the delay in milliseconds as first value and the vector points as following.
+- **`Mode::SIMULATION_RECORDING`**: This is useful when you want to use mock data and the [fimi Mock Server](https://github.com/xu-chris/fimi-Mock-Server) for further development of the [fimi Client](https://github.com/xu-chris/fimi-Client). It fetches the video file stored in the parameter `videoFilePath` and processes this. It creates a `test.mock` file which contains per line: the delay in milliseconds as first value and the vector points as following.
 
 ### Other Settings
 You can set furthermore the following settings:
